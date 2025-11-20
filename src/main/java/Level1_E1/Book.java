@@ -12,4 +12,21 @@ public class Book {
     public String getTitle() {
         return title;
     }
+
+    @Override
+    public boolean equals(Object object){
+        if(this == object){
+            return true;
+        }
+        if(object == null || getClass() != object.getClass()){
+            return false;
+        }
+        Book book = (Book) object;
+        return this.getTitle().equals(book.getTitle());
+    }
+
+    @Override
+    public int hashCode(){
+        return this.title.hashCode();
+    }
 }
