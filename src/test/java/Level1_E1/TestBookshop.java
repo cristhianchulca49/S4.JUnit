@@ -2,7 +2,6 @@ package Level1_E1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestBookshop {
@@ -37,5 +36,15 @@ public class TestBookshop {
         bookshop.addBook(book2);
         bookshop.addBook(book3);
         assertEquals(3, bookshop.getBooks().size(), "Bookshop should contain 3 books");
+    }
+
+    @Test
+    void testNoDuplicates() {
+        Book duplicate = new Book("Book 1", "Author 1");
+        bookshop.addBook(duplicate);
+        assertAll(
+                () -> assertEquals(1, bookshop.getBooks().size(), "Bookshop should not allow duplicate books"),
+                () -> assertTrue(bookshop.getBooks().contains(book), "Bookshop should already contain Book 1")
+        );
     }
 }
