@@ -47,4 +47,9 @@ public class TestBookshop {
                 () -> assertTrue(bookshop.getBooks().contains(book), "Bookshop should already contain Book 1")
         );
     }
+
+    @Test
+    void testGetTitleBookByIndex() {
+        assertEquals("Book 1", bookshop.getBookTitleByIndex(1));
+    }
 }
