@@ -15,7 +15,7 @@ public class Bookshop {
 
     public String getBookTitleByIndex(int index) {
         if (index <= 0 || index > books.size()) {
-            return null;
+            throw new IllegalArgumentException("Index out of bounds!");
         }
         List<Book> bookList = new ArrayList<>(books);
         return bookList.get(index - 1).getTitle();
