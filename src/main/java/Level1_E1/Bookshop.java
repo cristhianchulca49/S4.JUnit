@@ -1,5 +1,6 @@
 package Level1_E1;
 
+import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -10,4 +11,7 @@ public class Bookshop {
         books.add(book);
     }
 
+    public Set<Book> getBooks() {
+        return Collections.unmodifiableSet(books);
+    }
 }
