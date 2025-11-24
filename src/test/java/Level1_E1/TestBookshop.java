@@ -62,4 +62,18 @@ public class TestBookshop {
                 () -> assertFalse(bookshop.getBooks().contains(book), "Bookshop should not contain Book 1")
         );
     }
+
+    @Test
+    void testAlphabeticalOrder() {
+        bookshop.addBook(new Book("Z", "Author 1"));
+        bookshop.addBook(new Book("F", "Author 2"));
+        bookshop.addBook(new Book("B", "Author 3"));
+        bookshop.addBook(new Book("A", "Author 4"));
+        bookshop.removeBookByTitle("F");
+
+        assertAll(
+                () -> assertEquals("A", bookshop.getBookTitleByIndex(1), "The first book should be A"),
+                () -> assertEquals("Z", bookshop.getBookTitleByIndex(bookshop.getBooks().size()), "The last book should be Z")
+        );
+    }
 }
