@@ -5,6 +5,10 @@ import java.util.*;
 public class Bookshop {
     private Set<Book> books = new TreeSet<>();
 
+    public Bookshop(Book book) {
+        this.books.add(book);
+    }
+
     public void addBook(Book book) {
         if (book == null) {
             throw new IllegalArgumentException("Book can be null");
