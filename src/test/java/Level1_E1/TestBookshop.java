@@ -52,4 +52,14 @@ public class TestBookshop {
     void testGetTitleBookByIndex() {
         assertEquals("Book 1", bookshop.getBookTitleByIndex(1));
     }
+
+    @Test
+    void testRemoveBookByTitle() {
+        bookshop.removeBookByTitle("Book 1");
+
+        assertAll(
+                () -> assertTrue(bookshop.getBooks().isEmpty(), "Bookshop should be empty after removing the only book"),
+                () -> assertFalse(bookshop.getBooks().contains(book), "Bookshop should not contain Book 1")
+        );
+    }
 }
