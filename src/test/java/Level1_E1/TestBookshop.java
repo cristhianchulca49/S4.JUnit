@@ -21,4 +21,11 @@ public class TestBookshop {
                 () -> assertNotNull(bookshop.getBooks())
         );
     }
+
+    @Test
+    void testAddBook() {
+        Book book2 = new Book("Book 2", "Author 2");
+        bookshop.addBook(book2);
+        assertTrue(bookshop.getBooks().contains(book2), "Bookshop should contain Book 2");
+    }
 }
