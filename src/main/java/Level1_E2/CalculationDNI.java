@@ -32,5 +32,13 @@ public class CalculationDNI {
         letter.add("K");
         letter.add("E");
     }
+
+    public String calculateLetter(int numberDNI) {
+        if (numberDNI < 9999999) {
+            throw new IllegalArgumentException("Invalid number, should be 8 digits");
+        }
+        int index = numberDNI % 23;
+        return letter.get(index);
+    }
 }
 
