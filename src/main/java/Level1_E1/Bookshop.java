@@ -6,6 +6,9 @@ public class Bookshop {
     private Set<Book> books = new TreeSet<>();
 
     public void addBook(Book book) {
+        if (book == null) {
+            throw new IllegalArgumentException("Book can be null");
+        }
         books.add(book);
     }
 
