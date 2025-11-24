@@ -18,6 +18,13 @@ public class Bookshop {
             return null;
         }
         List<Book> bookList = new ArrayList<>(books);
-        return bookList.get(index-1).getTitle();
+        return bookList.get(index - 1).getTitle();
+    }
+
+    public void removeBookByTitle(String title) {
+        if (title == null || title.isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be null or empty!");
+        }
+        books.removeIf(book -> book.getTitle().equalsIgnoreCase(title));
     }
 }
