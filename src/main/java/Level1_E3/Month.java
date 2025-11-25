@@ -23,7 +23,7 @@ public class Month {
 
     public String getMonth(int index) {
         if(index < 0 || index >= months.size()) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + months.size());
+            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + months.size());
         }
         return months.get(index-1);
     }
