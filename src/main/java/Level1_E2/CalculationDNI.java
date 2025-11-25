@@ -1,44 +1,20 @@
 package Level1_E2;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CalculationDNI {
 
-    private List<String> letter = new ArrayList<>();
+    private static final List<String> LETTERS = List.of(
+            "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J",
+            "Z", "S", "Q", "V", "H", "L", "C", "K", "E"
+    );
 
-    public CalculationDNI() {
-        letter.add("T");
-        letter.add("R");
-        letter.add("W");
-        letter.add("A");
-        letter.add("G");
-        letter.add("M");
-        letter.add("Y");
-        letter.add("F");
-        letter.add("P");
-        letter.add("D");
-        letter.add("X");
-        letter.add("B");
-        letter.add("N");
-        letter.add("J");
-        letter.add("Z");
-        letter.add("S");
-        letter.add("Q");
-        letter.add("V");
-        letter.add("H");
-        letter.add("L");
-        letter.add("C");
-        letter.add("K");
-        letter.add("E");
-    }
-
-    public String calculateLetter(int numberDNI) {
-        if (numberDNI < 9999999) {
+    public static String calculateLetter(int numberDNI) {
+        if (numberDNI < 10000000 || numberDNI > 99999999) {
             throw new IllegalArgumentException("Invalid number, should be 8 digits");
         }
         int index = numberDNI % 23;
-        return letter.get(index);
+        return LETTERS.get(index);
     }
 }
 
